@@ -30,11 +30,12 @@ class CreateOrderService {
 
   public async execute({ customer_id, products }: IRequest): Promise<Order> {
     const customer = await this.customersRepository.findById(customer_id);
-    const productsArray = await this.productsRepository.findAllById(products);
 
     if (!customer) {
       throw new AppError('Costumer not found');
     }
+
+    const productsArray = await this.productsRepository.findAllById(products);
 
     if (productsArray.length !== products.length) {
       throw new AppError('The list of products contains invalids products');
