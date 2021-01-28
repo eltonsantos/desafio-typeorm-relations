@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+// eslint-disable-next-line import/no-unresolved
 import AppError from '@shared/errors/AppError';
 
 import Customer from '../infra/typeorm/entities/Customer';
